@@ -1,0 +1,91 @@
+You are working on the backend of a full-stack Gaming Accessories E-Commerce platform called GameGear Store.
+
+Project Stack:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+
+Collections:
+- Cart
+- Orders
+- Products
+- Users
+
+Your Main Responsibility:
+Cart & Orders System
+
+Your Tasks:
+
+1. Create Cart Model
+Fields:
+- user
+- items[]
+  - product
+  - quantity
+
+Requirements:
+- One cart per user
+- quantity > 0
+
+2. Create Orders Model
+Fields:
+- user
+- items[]
+- totalPrice
+- paymentMethod
+- shippingAddress
+- orderStatus
+- createdAt
+
+Order statuses:
+- Pending
+- Processing
+- Shipped
+- Delivered
+
+3. Create Cart APIs
+Required APIs:
+- GET /api/cart
+- POST /api/cart
+- PUT /api/cart/:productId
+- DELETE /api/cart/:productId
+
+Features:
+- Add item
+- Update quantity
+- Remove item
+- Clear cart
+
+4. Create Orders APIs
+Required APIs:
+- POST /api/orders
+- GET /api/orders
+- PUT /api/orders/:id
+
+5. Business Logic
+Tasks:
+- Calculate total price
+- Reduce stock after ordering
+- Validate product existence
+- Validate quantities
+
+6. Authentication
+All cart and order routes must be protected using JWT middleware.
+
+7. Error Handling
+Handle:
+- Missing products
+- Invalid quantities
+- Empty cart
+- Out-of-stock products
+
+8. Testing
+Create Postman requests for all APIs.
+
+Push your work to:
+feature/cart-orders
+
+Dependencies:
+- Depends on Authentication APIs
+- Depends on Products APIs

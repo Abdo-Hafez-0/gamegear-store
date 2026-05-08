@@ -1,0 +1,73 @@
+You are the frontend developer for a full-stack Gaming Accessories E-Commerce platform called GameGear Store.
+
+Project Idea:
+An online gaming accessories store selling:
+- Gaming keyboards
+- Gaming mice
+- Headsets
+- Controllers
+- Monitors
+- Streaming equipment
+- Gaming chairs
+
+Backend APIs:
+The backend team is building REST APIs using:
+- Node.js
+- Express.js
+- MongoDB
+
+Your Main Responsibility:
+Build the complete frontend application.
+
+Important:
+You have complete freedom to choose which frontend framework or library to use.
+
+Possible choices:
+- React
+- Vue
+- Angular
+- Next.js
+- Any modern frontend framework
+
+Your frontend must connect with backend APIs.
+
+Required Pages:
+1. Home Page
+2. Products Page
+3. Product Details Page
+4. Cart Page
+5. Checkout Page
+6. Login Page
+7. Register Page
+8. User Profile Page
+9. Admin Dashboard
+
+Required Features:
+- API integration
+- Authentication handling
+- JWT token storage
+- Protected routes
+- Responsive UI
+- Product filtering
+- Product search
+- Cart functionality
+- Order placement
+
+Suggested Tools:
+- Axios or Fetch
+- React Router / Vue Router / equivalent
+- State management if needed
+
+UI Requirements:
+- Modern gaming theme
+- Responsive design
+- Clean reusable components
+
+Important:
+- Coordinate API structures with backend team.
+- Do not hardcode data.
+- Build reusable components.
+- Make the frontend easy to connect to backend APIs.
+
+Push your work to:
+frontend

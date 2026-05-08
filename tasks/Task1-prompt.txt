@@ -1,0 +1,105 @@
+You are working on the backend of a full-stack Gaming Accessories E-Commerce platform called GameGear Store.
+
+Project Stack:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcryptjs
+- express-validator
+
+Project Idea:
+An online store for gaming accessories such as:
+- Keyboards
+- Mice
+- Headsets
+- Controllers
+- Monitors
+- Gaming Chairs
+- Streaming Equipment
+
+Database Collections:
+- Users
+- Categories
+- Products
+- Cart
+- Orders
+
+Your Main Responsibility:
+Authentication & Users System
+
+Your Tasks:
+
+1. Create User Model
+Fields:
+- name
+- email
+- password
+- phone
+- address
+- role
+- profileImage
+- createdAt
+
+Requirements:
+- Email must be unique
+- Password hashed using bcrypt
+- Use timestamps
+
+2. Create Authentication APIs
+Required APIs:
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/auth/profile
+
+3. Implement JWT Authentication
+Tasks:
+- Generate JWT token
+- Verify token middleware
+- Protect private routes
+
+4. Create Role Middleware
+Roles:
+- admin
+- customer
+
+Admin routes should only be accessible by admins.
+
+5. Add Validations
+Use:
+- express-validator
+OR
+- Mongoose validation
+
+Validate:
+- Email format
+- Password length
+- Required fields
+
+6. Error Handling
+Return proper status codes:
+- 400
+- 401
+- 404
+- 500
+
+7. Testing
+Test all APIs using Postman.
+
+Project Structure You Must Follow:
+- models
+- controllers
+- routes
+- middleware
+- validations
+
+Important:
+- Do not modify other team members’ files without coordination.
+- Push your work to:
+feature/auth
+
+Your work is required before:
+- Cart system
+- Orders system
+- Frontend authentication integration

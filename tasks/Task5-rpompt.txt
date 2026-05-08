@@ -1,0 +1,75 @@
+You are working on the backend of a full-stack Gaming Accessories E-Commerce platform called GameGear Store.
+
+Your Main Responsibility:
+Testing, Documentation, Admin Features, and Project Integration
+
+Your Tasks:
+
+1. Postman Collection
+Create and organize:
+- Authentication APIs
+- Products APIs
+- Categories APIs
+- Cart APIs
+- Orders APIs
+
+Requirements:
+- Organized folders
+- Saved request bodies
+- Environment variables
+- Shareable collection
+
+2. API Documentation
+Document:
+- Endpoints
+- Methods
+- Request bodies
+- Responses
+- Status codes
+
+3. README File
+Create professional README including:
+- Project idea
+- Technologies
+- Installation steps
+- Environment variables
+- API overview
+- Team structure
+
+4. Admin Features
+Implement:
+- Admin dashboard APIs
+- Order management APIs
+- User management APIs
+
+Possible APIs:
+- GET /api/admin/users
+- DELETE /api/admin/users/:id
+- GET /api/admin/orders
+- PUT /api/admin/orders/:id
+
+5. Validation & Error Review
+Review:
+- API validations
+- Error responses
+- Consistent response structures
+
+6. Final Integration Testing
+Tasks:
+- Test all modules together
+- Verify authentication
+- Verify database relationships
+- Verify filtering
+- Verify cart/order logic
+
+7. Deployment Preparation
+Prepare:
+- Production environment variables
+- MongoDB Atlas connection
+- Deployment instructions
+
+Push your work to:
+feature/testing-docs
+
+Dependencies:
+- Depends on all backend modules.

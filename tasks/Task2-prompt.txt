@@ -1,0 +1,105 @@
+You are working on the backend of a full-stack Gaming Accessories E-Commerce platform called GameGear Store.
+
+Project Stack:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- Multer
+- express-validator
+
+Project Idea:
+An online gaming accessories store.
+
+Collections:
+- Categories
+- Products
+
+Your Main Responsibility:
+Products & Categories System
+
+Your Tasks:
+
+1. Create Category Model
+Fields:
+- name
+- description
+- image
+
+2. Create Product Model
+Fields:
+- title
+- description
+- price
+- stock
+- brand
+- category
+- images
+- rating
+- specifications
+- createdBy
+- createdAt
+
+Specifications object:
+- connectivity
+- rgb
+- switches
+- dpi
+
+Requirements:
+- price > 0
+- stock >= 0
+- category as ObjectId reference
+- createdBy as ObjectId reference
+
+3. Create Categories CRUD APIs
+Required APIs:
+- GET /api/categories
+- POST /api/categories
+- PUT /api/categories/:id
+- DELETE /api/categories/:id
+
+4. Create Products CRUD APIs
+Required APIs:
+- GET /api/products
+- GET /api/products/:id
+- POST /api/products
+- PUT /api/products/:id
+- DELETE /api/products/:id
+
+5. Implement Filtering & Search
+Support:
+- Filter by category
+- Filter by brand
+- Filter by price range
+- Search by title
+
+Example:
+GET /api/products?category=mouse
+GET /api/products?minPrice=100&maxPrice=500
+
+6. Implement File Upload
+Use Multer for:
+- Product images
+- Category images
+
+7. Add Validations
+Validate:
+- Required fields
+- Positive prices
+- Non-negative stock
+
+8. Testing
+Create Postman requests for all APIs.
+
+Project Structure:
+- models
+- controllers
+- routes
+- validations
+
+Push your work to:
+feature/products
+
+Dependencies:
+- Depends on Authentication member for admin middleware.
