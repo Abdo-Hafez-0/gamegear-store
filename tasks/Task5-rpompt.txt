@@ -73,3 +73,33 @@ feature/testing-docs
 
 Dependencies:
 - Depends on all backend modules.
+
+Backend Structure
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │
+│   ├── middleware/
+│   │
+│   ├── models/
+│   │
+│   ├── routes/
+│   │
+│   ├── validations/
+│   │
+│   ├── utils/
+│   │
+│   ├── uploads/
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md

@@ -103,3 +103,33 @@ feature/products
 
 Dependencies:
 - Depends on Authentication member for admin middleware.
+
+Backend Structure
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   │   └── db.js
+│   │
+│   ├── controllers/
+│   │
+│   ├── middleware/
+│   │
+│   ├── models/
+│   │
+│   ├── routes/
+│   │
+│   ├── validations/
+│   │
+│   ├── utils/
+│   │
+│   ├── uploads/
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
