@@ -104,32 +104,215 @@ feature/products
 Dependencies:
 - Depends on Authentication member for admin middleware.
 
-Backend Structure
+---------------------------------
+
+You are continuing development on the GameGear Store backend project.
+
+Backend Stack:
+- Node.js
+- Express.js
+- MongoDB
+- Mongoose
+- JWT Authentication
+- bcryptjs
+- express-validator
+
+Project Structure:
 backend/
 │
 ├── src/
-│   │
 │   ├── config/
-│   │   └── db.js
-│   │
 │   ├── controllers/
-│   │
 │   ├── middleware/
-│   │
 │   ├── models/
-│   │
 │   ├── routes/
-│   │
 │   ├── validations/
-│   │
 │   ├── utils/
-│   │
 │   ├── uploads/
-│   │
 │   ├── app.js
 │   └── server.js
-│
-├── .env
-├── .gitignore
-├── package.json
-└── README.md
+
+Authentication & Users System has already been completed on branch:
+feature/auth
+
+Completed Features:
+1. User Model
+- User schema created using Mongoose
+- Fields:
+  - name
+  - email
+  - password
+  - phone
+  - address
+  - role
+  - profileImage
+- Email uniqueness implemented
+- Role enum:
+  - admin
+  - customer
+- timestamps enabled
+
+2. Authentication APIs
+Completed Routes:
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/auth/profile
+
+3. JWT Authentication
+Implemented:
+- JWT token generation
+- Token verification middleware
+- Protected routes using middleware
+
+Files:
+- src/utils/generateToken.js
+- src/middleware/authMiddleware.js
+
+Authorization Header Format:
+Authorization: Bearer TOKEN
+
+4. Role Authorization
+Implemented admin/customer role middleware.
+
+File:
+- src/middleware/roleMiddleware.js
+
+Usage Example:
+authorizeRoles("admin")
+
+Admin-only routes are supported.
+
+5. Validation System
+Implemented using express-validator.
+
+File:
+- src/validations/authValidation.js
+
+Current validations include:
+- required fields
+- email validation
+- password length validation
+
+6. Password Encryption
+Passwords are hashed using bcryptjs before saving users.
+
+7. Global Error Handling
+Implemented:
+- centralized error middleware
+- asyncHandler wrapper
+- consistent API error responses
+
+Files:
+- src/middleware/errorMiddleware.js
+- src/utils/asyncHandler.js
+
+Error response format:
+{
+  "success": false,
+  "message": "Error message"
+}
+
+8. Route Protection Architecture
+Current middleware flow:
+protect → authorizeRoles → controller
+
+Example:
+router.post(
+  "/products",
+  protect,
+  authorizeRoles("admin"),
+  createProduct
+);
+
+9. app.js Setup
+Already configured:
+- express.json()
+- cors()
+- auth routes
+- global error middleware
+
+10. MongoDB Connection
+Already connected using Mongoose.
+
+Files:
+- src/config/db.js
+- src/server.js
+
+Important Notes For Next Development:
+1. DO NOT rewrite authentication middleware.
+Reuse:
+- protect middleware
+- authorizeRoles middleware
+
+2. DO NOT store plain passwords anywhere.
+
+3. Any admin-only feature should use:
+protect + authorizeRoles("admin")
+
+4. All future controllers should use:
+asyncHandler()
+
+Example:
+const asyncHandler = require("../utils/asyncHandler");
+
+5. All future APIs should return consistent responses:
+{
+  success: true,
+  message: "...",
+  data: ...
+}
+
+6. All future errors should use:
+throw new Error("message")
+
+instead of manual try/catch responses.
+
+7. Product, Cart, and Orders systems can now safely depend on:
+req.user
+
+because authentication is completed.
+
+8. Suggested Development Order:
+- Categories Module
+- Products Module
+- Product Filtering APIs
+- Multer Uploads
+- Cart System
+- Orders System
+
+9. Products & Orders should use ObjectId references:
+- category → Categories
+- createdBy → Users
+- user → Users
+
+10. When creating admin-only APIs:
+Example:
+router.post(
+  "/",
+  protect,
+  authorizeRoles("admin"),
+  createCategory
+);
+
+11. Existing Authentication Routes:
+- POST /api/auth/register
+- POST /api/auth/login
+- GET /api/auth/profile
+- GET /api/auth/admin
+
+12. Existing Middleware Files:
+- authMiddleware.js
+- roleMiddleware.js
+- errorMiddleware.js
+
+13. Existing Utilities:
+- generateToken.js
+- asyncHandler.js
+
+14. Existing Validation File:
+- authValidation.js
+
+15. Existing Model:
+- User.js
+
+Your work should build on top of this structure without breaking authentication or middleware architecture.
