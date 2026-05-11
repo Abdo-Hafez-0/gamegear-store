@@ -1,0 +1,48 @@
+const express = require("express");
+const router = express.Router();
+
+const {
+  getProducts,
+  getProductById,
+  createProduct,
+  updateProduct,
+  deleteProduct,
+} = require("../controllers/productController");
+
+const { protect } = require("../middleware/authMiddleware");
+const { authorizeRoles } = require("../middleware/roleMiddleware");
+const upload = require("../middleware/uploadMiddleware");
+const { validate } = require("../middleware/validateMiddleware");
+const {
+  createProductValidation,
+  updateProductValidation,
+} = require("../validations/productValidation");
+
+// Public
+router.get("/", getProducts);
+router.get("/:id", getProductById);
+
+// Admin only
+router.post(
+  "/",
+  protect,
+  authorizeRoles("admin"),
+  upload.array("images", 10),
+  createProductValidation,
+  validate,
+  createProduct
+);
+
+router.put(
+  "/:id",
+  protect,
+  authorizeRoles("admin"),
+  upload.array("images", 10),
+  updateProductValidation,
+  validate,
+  updateProduct
+);
+
+router.delete("/:id", protect, authorizeRoles("admin"), deleteProduct);
+
+module.exports = router;
