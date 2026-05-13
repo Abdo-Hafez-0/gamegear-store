@@ -10,7 +10,7 @@ const {
 } = require("../controllers/productController");
 
 const { protect } = require("../middleware/authMiddleware");
-const { authorizeRoles } = require("../middleware/roleMiddleware");
+const authorizeRoles  = require("../middleware/roleMiddleware");
 const upload = require("../middleware/uploadMiddleware");
 const { validate } = require("../middleware/validateMiddleware");
 const {
