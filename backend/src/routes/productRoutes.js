@@ -19,12 +19,12 @@ const {
 } = require("../validations/productValidation");
 
 // Public
-router.get("/", getProducts);
-router.get("/:id", getProductById);
+router.get("/getProducts", getProducts);
+router.get("/getProductById/:id", getProductById);
 
 // Admin only
 router.post(
-  "/",
+  "/createProduct",
   protect,
   authorizeRoles("admin"),
   upload.array("images", 10),
@@ -34,7 +34,7 @@ router.post(
 );
 
 router.put(
-  "/:id",
+  "/updateProduct/:id",
   protect,
   authorizeRoles("admin"),
   upload.array("images", 10),
@@ -43,6 +43,11 @@ router.put(
   updateProduct
 );
 
-router.delete("/:id", protect, authorizeRoles("admin"), deleteProduct);
+router.delete(
+  "/deleteProduct/:id",
+  protect,
+  authorizeRoles("admin"),
+  deleteProduct
+);
 
 module.exports = router;

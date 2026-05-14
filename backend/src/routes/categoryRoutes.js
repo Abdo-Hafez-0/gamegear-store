@@ -18,11 +18,11 @@ const {
 } = require("../validations/categoryValidation");
 
 // Public
-router.get("/", getCategories);
+router.get("/getCategories", getCategories);
 
 // Admin only
 router.post(
-  "/",
+  "/createCategory",
   protect,
   authorizeRoles("admin"),
   upload.single("image"),
@@ -32,7 +32,7 @@ router.post(
 );
 
 router.put(
-  "/:id",
+  "/updateCategory/:id",
   protect,
   authorizeRoles("admin"),
   upload.single("image"),
@@ -41,6 +41,11 @@ router.put(
   updateCategory
 );
 
-router.delete("/:id", protect, authorizeRoles("admin"), deleteCategory);
+router.delete(
+  "/deleteCategory/:id",
+  protect,
+  authorizeRoles("admin"),
+  deleteCategory
+);
 
 module.exports = router;
