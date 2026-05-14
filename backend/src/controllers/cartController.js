@@ -35,13 +35,7 @@ const getCart = asyncHandler(async (req, res) => {
 // POST /api/cart
 const addToCart = asyncHandler(async (req, res) => {
 
-  const { productId, quantity } = req.body;
-
-  // Validate quantity
-  if (!quantity || quantity < 1) {
-    res.status(400);
-    throw new Error("Quantity must be greater than 0");
-  }
+  const { productId } = req.body;
 
   // Check product exists
   const product = await Product.findById(productId);
@@ -49,12 +43,6 @@ const addToCart = asyncHandler(async (req, res) => {
   if (!product) {
     res.status(404);
     throw new Error("Product not found");
-  }
-
-  // Check stock
-  if (product.stock < quantity) {
-    res.status(400);
-    throw new Error("Product is out of stock");
   }
 
   // Find user cart
@@ -80,18 +68,26 @@ const addToCart = asyncHandler(async (req, res) => {
 
   if (existingItem) {
 
-    // Increase quantity
-    existingItem.quantity += quantity;
-
-  } else {
-
-    // Add new item
-    cart.items.push({
-      product: productId,
-      quantity,
-    });
-
+  if (existingItem.quantity + 1 > product.stock) {
+    res.status(400);
+    throw new Error("Requested quantity exceeds stock");
   }
+
+  existingItem.quantity += 1;
+
+} else {
+
+  if (product.stock < 1) {
+    res.status(400);
+    throw new Error("Product is out of stock");
+  }
+
+  cart.items.push({
+    product: productId,
+    quantity: 1,
+  });
+
+}
 
   await cart.save();
 
