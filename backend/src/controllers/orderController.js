@@ -103,6 +103,18 @@ const getOrders = asyncHandler(async (req, res) => {
     .populate("items.product")
     .sort({ createdAt: -1 });
 
+  if (orders.length === 0) {
+
+    return res.status(200).json({
+      success: true,
+      message: "No orders yet!  :(",
+      data: {
+        items: [],
+      },
+    });
+
+  }
+
   res.status(200).json({
     success: true,
     message: "Orders fetched successfully",
@@ -112,6 +124,43 @@ const getOrders = asyncHandler(async (req, res) => {
 
 });
 
+
+const getAllOrders = asyncHandler(async (req, res) => {
+
+  const page = Number(req.query.page) || 1;
+
+  const limit = Number(req.query.limit) || 10;
+
+  const skip = (page - 1) * limit;
+
+  // Total orders count
+  const totalOrders = await Order.countDocuments();
+
+  // Paginated orders
+  const orders = await Order.find()
+    .populate("user", "name email")
+    .populate("items.product")
+    .sort({ createdAt: -1 })
+    .skip(skip)
+    .limit(limit);
+
+  res.status(200).json({
+    success: true,
+    message: "All orders fetched successfully",
+
+    pagination: {
+      currentPage: page,
+      totalPages: Math.ceil(totalOrders / limit),
+      totalOrders,
+      limit,
+    },
+
+    count: orders.length,
+
+    data: orders,
+  });
+
+});
 
 
 const updateOrderStatus = asyncHandler(async (req, res) => {
@@ -156,5 +205,6 @@ const updateOrderStatus = asyncHandler(async (req, res) => {
 module.exports = {
   createOrder,
   getOrders,
+  getAllOrders,
   updateOrderStatus
 };

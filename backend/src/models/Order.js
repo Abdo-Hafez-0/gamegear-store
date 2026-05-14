@@ -37,6 +37,11 @@ const orderSchema = new mongoose.Schema(
     paymentMethod: {
       type: String,
       required: true,
+      enum: [
+        "Cash",
+        "Credit Card",
+        "PayPal",
+      ],
     },
 
     shippingAddress: {
