@@ -56,7 +56,7 @@ export default function Home() {
                             <img
                                 className="w-full h-full object-cover rounded-3xl"
                                 src={resolveImage(
-                                    `http://localhost:5000/uploads/landing/wp13153007.jpg`,
+                                    `../backend/uploads/landing/wp13153007.jpg`,
                                 )}
                                 alt=""
                             />
