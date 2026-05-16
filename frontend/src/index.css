@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root { color-scheme: dark; }
+
+html, body, #root { height: 100%; }
+body {
+  font-family: 'Inter', sans-serif;
+  background:
+    radial-gradient(1200px 600px at 80% -10%, rgba(0,212,255,0.15), transparent 60%),
+    radial-gradient(900px 500px at 0% 10%, rgba(155,92,255,0.12), transparent 60%),
+    #060912;
+}
+
+@layer components {
+  .btn { @apply inline-flex items-center justify-center gap-2 px-4 py-2 rounded-md font-semibold transition active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed; }
+  .btn-primary { @apply btn bg-brand-500 text-slate-950 hover:bg-brand-600 hover:text-white shadow-glow; }
+  .btn-outline { @apply btn border border-slate-700 hover:border-brand-500 hover:text-brand-500; }
+  .btn-ghost { @apply btn hover:bg-slate-800; }
+  .btn-danger { @apply btn bg-red-600 text-white hover:bg-red-700; }
+  .input { @apply w-full bg-slate-900/70 border border-slate-700 rounded-md px-3 py-2 outline-none focus:border-brand-500 focus:ring-1 focus:ring-brand-500 text-slate-100 placeholder:text-slate-500; }
+  .label { @apply text-sm font-medium text-slate-300 mb-1 block; }
+  .card { @apply bg-slate-900/60 border border-slate-800 rounded-xl backdrop-blur; }
+  .heading-display { font-family: 'Orbitron', sans-serif; letter-spacing: 0.02em; }
+  .chip { @apply inline-flex items-center px-2 py-0.5 rounded-full text-xs font-medium bg-slate-800 text-slate-300; }
+}
+
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: #334155; }
