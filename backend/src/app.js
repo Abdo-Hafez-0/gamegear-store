@@ -13,7 +13,10 @@ const orderRoutes = require("./routes/orderRoutes");
 const app = express();
 
 // Middlewares
-app.use(cors());
+app.use(cors({
+  origin: "https://your-vercel-app.vercel.app",
+  credentials: true
+}));
 app.use(express.json());
 
 // Static — serve uploaded images
