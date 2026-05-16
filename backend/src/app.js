@@ -18,7 +18,7 @@ app.use(cors({
   credentials: true
 }));
 app.use(express.json());
-
+ 
 // Static — serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
