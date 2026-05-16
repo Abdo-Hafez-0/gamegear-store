@@ -1,22 +1,19 @@
 # GameGear Store
 
-## Project Overview
+## Overview
 
-GameGear Store is a full-stack Gaming Accessories E-Commerce platform developed as a backend and frontend web application project.
+GameGear Store is a full-stack E-Commerce platform developed for selling gaming accessories and gaming-related products through a modern web application.
 
-The platform allows users to browse and purchase gaming accessories such as:
-- Gaming Keyboards
-- Gaming Mice
-- Headsets
-- Controllers
-- Monitors
-- Gaming Chairs
-- Streaming Equipment
-- Mouse Pads
-- Microphones
-- Webcams
+The platform provides:
+- Product browsing
+- Product filtering and searching
+- Authentication and authorization
+- Cart management
+- Order management
+- Admin product management
+- Responsive frontend integration
 
-The project is designed using a scalable backend architecture with REST APIs and a modern frontend application connected to the backend services.
+The project follows a scalable backend architecture using REST APIs and cloud deployment services.
 
 ---
 
@@ -33,132 +30,264 @@ The project is designed using a scalable backend architecture with REST APIs and
 - express-validator
 
 ## Frontend
-- Modern frontend framework chosen by the frontend developer
-- API integration using Axios or Fetch
+- Modern JavaScript frontend framework
+- Axios / Fetch API
+- Responsive UI Design
 
-## Database
-- MongoDB Atlas Cloud Database
+## Deployment
+- Frontend: Vercel
+- Backend: Render
+- Database: MongoDB Atlas
 
 ---
 
-# Project Goals
+# Project Architecture
 
-The main goals of this project are:
-- Build a scalable REST API
-- Implement full CRUD operations
-- Use MongoDB with Mongoose
-- Implement Authentication & Authorization
-- Create filtering and search APIs
-- Build a responsive frontend application
-- Implement cart and order systems
-- Follow clean modular backend architecture
+The backend follows a modular scalable architecture:
+
+```txt
+backend/
+│
+├── src/
+│   │
+│   ├── config/
+│   ├── controllers/
+│   ├── middleware/
+│   ├── models/
+│   ├── routes/
+│   ├── validations/
+│   ├── utils/
+│   ├── uploads/
+│   │
+│   ├── app.js
+│   └── server.js
+│
+├── .env
+├── package.json
+└── README.md
+```
 
 ---
 
 # Main Features
 
-## User Features
-- Register and login
-- Browse products
-- Search and filter products
-- Add products to cart
-- Place orders
-- View order history
+## Authentication System
+- User registration
+- User login
+- JWT authentication
+- Protected routes
+- Role-based authorization
 
-## Admin Features
-- Manage products
-- Manage categories
-- Manage orders
-- Manage users
+## Products System
+- Product CRUD APIs
+- Product filtering
+- Product searching
+- Product image uploads
+
+## Categories System
+- Categories CRUD APIs
+
+## Cart System
+- Add products to cart
+- Update quantities
+- Remove items from cart
+
+## Orders System
+- Create orders
+- Order history
+- Order status updates
+
+## Frontend Integration
+- Responsive user interface
+- API integration
+- Dynamic product pages
+- Cart and checkout pages
 
 ---
 
 # Database Collections
 
-The project database contains the following collections:
-
-1. Users
-2. Categories
-3. Products
-4. Cart
-5. Orders
-
-MongoDB Atlas is used as the cloud database server for storing and managing all application data.
+The project uses MongoDB Atlas with the following collections:
+- Users
+- Categories
+- Products
+- Cart
+- Orders
 
 ---
 
-# Project Workflow
+# Development Workflow
 
-## 1. User Authentication Flow
+The project was developed in multiple phases:
 
-1. User registers using email and password
-2. Password is encrypted using bcrypt
-3. User logs in
-4. JWT token is generated
-5. Protected routes use JWT middleware for authorization
+## Phase 1 — Project Setup
+- Backend setup
+- MongoDB Atlas connection
+- Environment configuration
+- GitHub repository structure
 
----
+## Phase 2 — Database Design
+- Mongoose schemas
+- Database relationships
+- Validations
 
-## 2. Product Management Flow
+## Phase 3 — Authentication
+- JWT authentication
+- Password hashing
+- Protected routes
 
-1. Admin creates categories
-2. Admin adds products
-3. Product images are uploaded using Multer
-4. Products are stored in MongoDB Atlas
-5. Users can browse and filter products
+## Phase 4 — Products & Categories
+- CRUD APIs
+- Filtering and searching
+- Image uploads
 
----
+## Phase 5 — Cart & Orders
+- Cart logic
+- Order creation
+- Stock management
 
-## 3. Cart Flow
+## Phase 6 — Frontend Integration
+- API integration
+- UI pages
+- Authentication flow
 
-1. User adds products to cart
-2. Cart stores product references and quantities
-3. User can update quantities or remove items
-4. Cart belongs to one user
-
----
-
-## 4. Order Flow
-
-1. User proceeds to checkout
-2. Order is created from cart items
-3. Total price is calculated
-4. Product stock is reduced
-5. Order status is updated by admins
-
----
-
-# Backend Architecture
-
-The backend follows a modular scalable architecture.
-
-Main folders:
-- config
-- controllers
-- middleware
-- models
-- routes
-- validations
-- utils
-- uploads
-
-This structure keeps the project organized and maintainable.
+## Phase 7 — Testing & Deployment
+- API testing
+- Deployment preparation
+- Cloud hosting setup
 
 ---
 
-# GitHub Branch Strategy
+# API Features
 
-Main branches:
-- main
-- develop
-- backend
-- frontend
+## Authentication APIs
+- Register
+- Login
+- User profile
 
-Feature branches:
-- feature/auth
-- feature/products
-- feature/cart-orders
-- feature/testing-docs
+## Products APIs
+- Create product
+- Update product
+- Delete product
+- Get all products
+- Filter products
+
+## Categories APIs
+- Create category
+- Update category
+- Delete category
+- Get categories
+
+## Cart APIs
+- Add to cart
+- Update quantity
+- Remove item
+- Get cart
+
+## Orders APIs
+- Create order
+- Get orders
+- Update order status
+
+---
+
+# Security & Validation
+
+The project includes:
+- Password hashing using bcrypt
+- JWT authentication
+- Protected API routes
+- Role middleware
+- Request validation
+- Error handling middleware
+
+---
+
+# Deployment
+
+## Frontend Deployment
+The frontend application is deployed using Vercel.
+
+Frontend URL:
+```txt
+https://gamegear-store.vercel.app
+```
+
+## Backend Deployment
+The backend APIs are deployed using Render.
+
+Backend URL:
+```txt
+https://gamegear-store.onrender.com
+```
+
+## Database Hosting
+MongoDB Atlas is used as the cloud database server.
+
+---
+
+# Screenshots
+
+## Home Page
+<img src="./screenshots/home.png" alt="Home Page" />
+
+---
+
+## Products Page
+<img src="./screenshots/products.png" alt="Products Page" />
+
+---
+
+## Product Details Page
+<img src="./screenshots/product-details.png" alt="Product Details Page" />
+
+---
+
+## Cart Page
+<img src="./screenshots/cart.png" alt="Cart Page" />
+
+---
+
+## Login Page
+<img src="./screenshots/login.png" alt="Login Page" />
+
+---
+
+## Admin Dashboard
+<img src="./screenshots/admin-dashboard.png" alt="Admin Dashboard" />
+
+---
+
+# Installation
+
+## Clone Repository
+
+```bash
+git clone https://github.com/Abdo-Hafez-0/gamegear-store.git
+```
+
+---
+
+## Backend Setup
+
+```bash
+cd backend
+npm install
+```
+
+Create `.env` file:
+
+```env
+PORT=5000
+MONGO_URI=your_mongodb_atlas_connection_string
+JWT_SECRET=your_secret_key
+```
+
+Run backend:
+
+```bash
+npm run dev
+```
 
 ---
 
@@ -170,105 +299,14 @@ Feature branches:
 | Member 2 | Products & Categories |
 | Member 3 | Cart & Orders |
 | Member 4 | Frontend Development |
-| Member 5 | Testing, Documentation & Admin Features |
-
----
-
-# API Modules
-
-## Authentication APIs
-- Register
-- Login
-- Profile
-
-## Categories APIs
-- Create category
-- Update category
-- Delete category
-- Get categories
-
-## Products APIs
-- Create product
-- Update product
-- Delete product
-- Get products
-- Product filtering
-
-## Cart APIs
-- Add to cart
-- Update quantity
-- Remove item
-- Get user cart
-
-## Orders APIs
-- Create order
-- Get orders
-- Update order status
-
----
-
-# Validation & Security
-
-The project includes:
-- Request validation
-- JWT Authentication
-- Password hashing
-- Protected routes
-- Role-based authorization
-- Error handling middleware
-
----
-
-# Setup Instructions
-
-## Clone Repository
-
-```bash
-git clone https://github.com/Abdo-Hafez-0/gamegear-store.git
-```
-
-## Install Backend Dependencies
-
-```bash
-cd backend
-npm install
-```
-
-## Environment Variables
-
-Create `.env` file:
-
-```env
-PORT=5000
-MONGO_URI=your_mongodb_atlas_connection_string
-JWT_SECRET=your_secret_key
-```
-
----
-
-# Run Backend Server
-
-```bash
-npm run dev
-```
-
----
-
-# Future Improvements
-
-Possible future enhancements:
-- Wishlist system
-- Product reviews
-- Payment gateway integration
-- Real-time notifications
-- Analytics dashboard
-- Pagination and advanced sorting
+| Member 5 | Testing & Documentation |
 
 ---
 
 # Project Status
 
-Current Phase:
-Backend architecture and module development.
-
-The project is being developed collaboratively by a 5-member team using GitHub for version control and MongoDB Atlas for cloud database hosting.
+The project is fully developed as a scalable full-stack E-Commerce platform using:
+- Render for backend deployment
+- Vercel for frontend deployment
+- MongoDB Atlas for cloud database hosting
+- GitHub for team collaboration and version control
