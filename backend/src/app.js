@@ -14,11 +14,11 @@ const app = express();
 
 // Middlewares
 app.use(cors({
-  origin: "https://gamegear-store.vercel.app/",
+  origin: "https://gamegear-store.vercel.app",
   credentials: true
 }));
 app.use(express.json());
-
+ 
 // Static — serve uploaded images
 app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
