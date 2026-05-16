@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { categoryApi, productApi } from "../services/api.js";
+import { categoryApi, productApi, resolveImage } from "../services/api.js";
 import ProductCard from "../components/ProductCard.jsx";
 import CategoryCard from "../components/CategoryCard.jsx";
 import Spinner from "../components/Spinner.jsx";
@@ -53,9 +53,13 @@ export default function Home() {
                         className="relative"
                     >
                         <div className="aspect-square rounded-3xl bg-gradient-to-br from-brand-500/30 via-neon-purple/20 to-transparent border border-slate-800 flex items-center justify-center">
-                            <div className="heading-display text-7xl md:text-8xl text-white/10">
-                                RGB
-                            </div>
+                            <img
+                                className="w-full h-full object-cover rounded-3xl"
+                                src={resolveImage(
+                                    `http://localhost:5000/uploads/landing/wp13153007.jpg`,
+                                )}
+                                alt=""
+                            />
                         </div>
                     </motion.div>
                 </div>
